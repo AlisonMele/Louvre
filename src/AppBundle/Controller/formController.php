@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class formController extends Controller {
               
      /**
-     * @Route("/index")
+     * @Route("/index", name="homepage")
      */
     public function addAction(Request $request)
     {
@@ -45,7 +45,7 @@ class formController extends Controller {
 
     /**
      * 
-     * @Route ("\ticket")
+     * @Route ("\ticket", name="showTickets")
      */
     public function showTickets(Request $request)
     {

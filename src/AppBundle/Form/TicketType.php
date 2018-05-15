@@ -16,6 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Sale;
+use AppBundle\Entity\Ticket;
 
 class TicketType extends AbstractType
 {
@@ -33,7 +35,9 @@ class TicketType extends AbstractType
                     ))
                 ->add('country')
                 ->add('price')
-                ->add('reduction', CheckboxType::class);
+                ->add('reduction', CheckboxType::class, array(
+                    'required' => FALSE,
+                ));
     }
     /**
      * {@inheritdoc}
@@ -41,7 +45,7 @@ class TicketType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => NULL
+            'data_class' => 'AppBundle\Entity\Ticket',
         ));
     }
 

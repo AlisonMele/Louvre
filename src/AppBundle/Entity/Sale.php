@@ -67,12 +67,12 @@ class Sale
      * @var \Date
      *
      * @ORM\Column(name="datereservation", type="date")
-     * @Assert\NotBlank()
+     * 
      */
     private $datereservation;
     
     /**
-     *
+     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Ticket", mappedBy="sale", cascade={"persist", "remove"})
      * @ORM\OrderBy({"id" = "ASC"})
      */     
@@ -108,17 +108,13 @@ class Sale
      */
     private $quantity;
     
-     public function __toString() {
-       return Sale::class ;
-    }
 
-      public function __construct()
+
+    public function __construct()
     {
-        $this-> tickets = new ArrayCollection();
-        $this-> datereservation = new \Datetime();
-    }
-
-    
+        $this->tickets = new Ticket();
+        $this->datereservation = new \DateTime();
+    }    
      /**
      * add a ticket
      *

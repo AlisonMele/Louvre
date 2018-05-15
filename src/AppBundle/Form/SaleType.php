@@ -28,7 +28,7 @@ class SaleType extends AbstractType
     {
         $builder
                 ->add('datereservation', DateType::class, array(
-                    'data' => new \DateTime(),
+                    'data' => new \Datetime(),
                    
                 ))
 

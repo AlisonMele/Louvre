@@ -3,8 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\Constraints as AcmeAssert;
+
 /**
  * Ticket
  *
@@ -81,7 +83,6 @@ class Ticket
      * @ORM\Column(name="reduction", type="boolean")
      */
     private $reduction;
-    
     
 
     /**

@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class formController extends Controller {
               
      /**
-     * @Route("/index")
+     * @Route("/index", name="home")
      */
     public function addAction(Request $request)
     {
@@ -28,6 +28,7 @@ class formController extends Controller {
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
+//            $form->handleRequest($request);
             $em = $this->getDoctrine()->getManager();
 //            $form->getData();
 //            $this->getSession()->set('email', $email);
@@ -45,17 +46,17 @@ class formController extends Controller {
 
     /**
      * 
-     * @Route ("\ticket")
+     * @Route ("/ticket", name="showtickets")
      */
     public function showTickets(Request $request)
     {
         $sale = new Sale();
-        $form1 = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
+        $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
         
 //        $form->getData();
 //        $this->getSession()->set('email');
-        $form1->handleRequest($request);
-            if ($form1->isSubmitted() && $form1->isValid()){
+        $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()){
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sale);
                 $em->flush();

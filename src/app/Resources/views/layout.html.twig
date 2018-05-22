@@ -1,0 +1,57 @@
+{# empty Twig template #}
+<!doctype html>
+<html>
+<head>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('js/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('js/style.css') }}">
+        
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+    {% endblock %}
+    
+   
+    <meta charset="utf-8" />
+    <title>Billeterie du Louvre</title> 
+ 
+</head>
+
+<body>
+    {% block head %}
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                    <div class="navbar-header">
+                        <img src="{{ asset('Musee_du_Louvre_logo.png') }}" alt="Responsive image" class="img-responsive col-md-6" width="250" height="190" />
+                        <h1 class="navbar-brand col-md-6 text-right text-uppercase" href="accueil.html.twig">Billeterie du Louvre</h1>
+                    </div>      
+                    </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default language dropdown-toggle" data-toggle="dropdown">
+                            {{ app.request.locale }} &nbsp;<span class="caret"></span>
+                          </button>
+                              <ul class="dropdown-menu" role="menu">
+                              
+                                <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><i class="fa fa-check"></i> English</a></li>
+                              
+                                <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><i class="fa fa-check"></i>Français</a></li>
+                                
+                                                   
+                              </ul>
+                              
+                        </div>
+                </nav>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+<footer>
+    {% block footer %}
+        <p class="col-md-12">Copyright &copy;2018 - <small>Alison MELE</small></p>
+        <a href="" class="col-md-12">Mentions légales</a>
+    {% endblock %}
+</footer>
+</body>
+
+</html>

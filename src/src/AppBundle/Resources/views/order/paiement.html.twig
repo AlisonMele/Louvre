@@ -1,0 +1,20 @@
+{# empty Twig template #}
+{% extends 'layout.html.twig' %}
+{% block content %}
+ <div class="col-md-6">
+        <h1>Paiement en ligne</h1>
+ <form action="" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_Cc96wSJS1woH0Zw66PQ2muHE"
+    data-amount="999"
+    data-name="Alison"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-currency="eur">
+  </script>
+</form>
+ </div>
+    
+{% endblock %}

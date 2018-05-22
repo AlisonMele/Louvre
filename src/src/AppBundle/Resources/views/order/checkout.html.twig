@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+<div class="row">
+    <div class='col-md-2'>
+    <h2>
+      Informations pratiques
+    </h2>
+    <table>
+    <tr> 
+      <td>Lundi</td>
+      <td>9 h - 18 h</td>
+    </tr>
+    <tr> 
+      <td>Mardi</td>
+      <td>Fermé</td>
+    </tr>
+    <tr> 
+      <td>Mercredi</td>
+      <td>9 h - 21h45</td>
+    </tr>
+    <tr> 
+      <td>Jeudi</td>
+      <td>9 h - 18 h</td>
+    </tr>
+    <tr> 
+      <td>Vendredi</td>
+      <td>9 h - 21h45</td>
+    </tr>
+    <tr> 
+      <td>Samedi</td>
+      <td>9 h - 18 h</td>
+    </tr>
+    <tr> 
+      <td>Dimanche</td>
+      <td>9 h - 18 h</td>
+    </tr>
+    <p>Musée fermé les 1er mai, 1er novembre et 25 décembre</p>
+    </table>
+        <h2>Conditions d'achat</h2>
+            <p>8 billets par commande</p>
+            <p>Entrée à partir de 14h pour le billets Demi-journée</p>
+                <h2>Informations tarifaires</h2>
+                   <p> Normal (à partir de 12 ans): 16 €</p>
+                   <p>Enfant (à partir de 4 ans et jusqu’à 12 ans): à 8 €</p>
+                   <p>Enfant -4ans : Gratuit</p>
+                   <p>Senior (à partir de 60 ans): 12  €</p>
+                   <p>Réduit  de 10 € accordé dans certaines conditions (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)<p>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="form1">
+        <h1>Félicitation votre achat a été validé</h1>
+           
+            
+      </div>
+    </div>
+</div>
+{% endblock %}

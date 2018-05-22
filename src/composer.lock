@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cca56ff3cc1dafb9ed0ef64771fb4dc",
+    "content-hash": "82154782552ff0e594622944cfb49685",
     "packages": [
         {
             "name": "components/jquery",
@@ -1703,23 +1703,23 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v6.5.0",
+            "version": "v3.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "fc4cfa0583fdab53355aec0b28412fa94a8c1f39"
+                "reference": "c702a2ed92f4b39603c4a796492d87bcc16c819c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/fc4cfa0583fdab53355aec0b28412fa94a8c1f39",
-                "reference": "fc4cfa0583fdab53355aec0b28412fa94a8c1f39",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c702a2ed92f4b39603c4a796492d87bcc16c819c",
+                "reference": "c702a2ed92f4b39603c4a796492d87bcc16c819c",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": ">=5.4.0"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
@@ -1754,7 +1754,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2018-04-05T19:40:23+00:00"
+            "time": "2016-09-15T18:16:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2344,16 +2344,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.8",
+            "version": "v3.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "5304a36c5efbb01af7efe2bb5b1953dbaeebc293"
+                "reference": "4babd75194d45f7a4412560038924f3008c67ef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/5304a36c5efbb01af7efe2bb5b1953dbaeebc293",
-                "reference": "5304a36c5efbb01af7efe2bb5b1953dbaeebc293",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/4babd75194d45f7a4412560038924f3008c67ef2",
+                "reference": "4babd75194d45f7a4412560038924f3008c67ef2",
                 "shasum": ""
             },
             "require": {
@@ -2494,7 +2494,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-04-06T15:20:04+00:00"
+            "time": "2018-04-30T19:27:18+00:00"
         },
         {
             "name": "twbs/bootstrap",

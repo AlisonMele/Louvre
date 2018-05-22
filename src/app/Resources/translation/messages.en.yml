@@ -1,0 +1,14 @@
+## YAML Template.
+---
+Prénom: Name
+Nom: Surname
+Date de naissance: Birthday
+Date de la visite: Visit Date
+Nombre de billets: Number of tickets
+Pays: Country
+Billeterie du louvre: Ticketing
+Réservez votre entrée: Booking
+Informations pratiques: Useful informations
+Conditions d'achat: Conditions of purchase
+Informations tarifaires: Tariff Information
+

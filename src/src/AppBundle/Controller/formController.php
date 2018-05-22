@@ -15,11 +15,7 @@ use AppBundle\Entity\Sale;
 use AppBundle\Entity\Ticket;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class formController extends Controller {
-    
-   
-    
               
      /**
      * @Route("/index", name="home")
@@ -27,7 +23,6 @@ class formController extends Controller {
     public function addAction(Request $request)
     {
         $sale = new Sale();
-        
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
 
         $form->handleRequest($request);

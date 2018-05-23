@@ -24,7 +24,8 @@ class formController extends Controller {
     {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
-
+        $ticket = new Ticket();
+        $formulaire = $this->createForm(\AppBundle\Form\SaleType::class, $ticket);
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
@@ -35,6 +36,7 @@ class formController extends Controller {
             
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),
+                'formulaire' => $formulaire->createView(),
             ));
 
         }
@@ -52,18 +54,23 @@ class formController extends Controller {
     {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
+        $ticket = new Ticket();
+        $formulaire = $this->createForm(\AppBundle\Form\SaleType::class, $ticket);
         
 //        $form->getData();
 //        $this->getSession()->set('email');
         $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()){
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($sale);
+                $em->persist($sale, $ticket);
+                
                 $em->flush();
+                
             return $this->render('AppBundle:index:paiement.html.twig');
             }
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),
+                'formulaire' => $formulaire->createView(),
             ));
 
     }

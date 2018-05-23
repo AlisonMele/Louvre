@@ -51,9 +51,13 @@
     <div class="col-md-6">
         <h1>ETAPE 2 : Complétez les coordonnées des visiteurs</h1>
 
-         <form action='{{ path('showtickets') }}' method='POST'>
+        <form action='{{ path('showtickets') }}' method='POST'>         
            {{ form_errors(form) }}
- 
+            <div>
+                 {{ form_label(form.datereservation, "Date de la réservation") }}
+                 {{ form_errors(form.datereservation) }}
+                 {{ form_widget(form.datereservation) }}
+            </div>
 
             <div>
                  {{ form_label(form.visit, "Date de la visite") }}
@@ -71,7 +75,7 @@
                  {{ form_widget(form.quantity) }}
             </div>
             <div>
-                 {{ form_label(form.name, "Pénnom") }}
+                 {{ form_label(form.name, "Pénom") }}
                  {{ form_errors(form.name) }}
                  {{ form_widget(form.name) }}
             </div>
@@ -86,13 +90,37 @@
                  {{ form_widget(form.email) }}
             </div>
 
-            {% for ticket in form.tickets %}               
+          {% for ticket in formulaire %}             
             <div>
-                 {{ form_label(form.tickets, "Compléter les informations visiteurs") }}
-                 {{ form_errors(form.tickets) }}
-                 {{ form_widget(form.tickets) }}
+                <h2>Informations visiteurs</h2>
+                
             </div>      
-            {% endfor %}
+            <div>
+                 {{ form_label(formulaire.name, "Pénom") }}
+                 {{ form_errors(formulaire.name) }}
+                 {{ form_widget(formulaire.name) }}
+            </div>
+            <div>
+                 {{ form_label(formulaire.surname, "Nom") }}
+                 {{ form_errors(formulaire.surname) }}
+                 {{ form_widget(formulaire.surname) }}
+            </div>
+            <div>
+                 {{ form_label(formulaire.birth, "Date de naissance") }}
+                 {{ form_errors(formulaire.birth) }}
+                 {{ form_widget(formulaire.birth) }}
+            </div>
+            <div>
+                 {{ form_label(formulaire.country, "Pays de résidence") }}
+                 {{ form_errors(formulaire.country) }}
+                 {{ form_widget(formulaire.country) }}
+            </div>
+            <div>
+                 {{ form_label(formulaire.reduction, "Tarif réduit") }}
+                 {{ form_errors(formulaire.reduction) }}
+                 {{ form_widget(formulaire.reduction) }}
+            </div>
+           {% endfor %}
 
 
             <div>

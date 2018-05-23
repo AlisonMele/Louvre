@@ -40,14 +40,14 @@ class OrderController extends Controller
         // Create a charge: this will charge the user's card
         try {
             $charge = \Stripe\Charge::create(array(
-                "amount" => 1000, // Amount in cents
+                "amount" => $price, // Amount in cents
                 "currency" => "eur",
                 "source" => $token,
                
                 "description" => "Paiement Stripe - OpenClassrooms Exemple"
             ));
             $this->addFlash("success","Bravo ça marche !");
-            return $this->redirectToRoute("checkout.html.twig");
+            return $this->redirectToRoute("AppBundle:order:checkout.html.twig");
         } catch(\Stripe\Error\Card $e) {
             $this->addFlash("error","Snif ça marche pas :(");
             return $this->redirectToRoute("order_prepare");

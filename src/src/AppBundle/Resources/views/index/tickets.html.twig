@@ -85,14 +85,39 @@
                  {{ form_errors(form.email) }}
                  {{ form_widget(form.email) }}
             </div>
-
-            {% for ticket in form.tickets %}               
-            <div>
-                 {{ form_label(form.tickets, "Compléter les informations visiteurs") }}
+<div>
+                 {{ form_label(form.tickets, "Tarif réduit") }}
                  {{ form_errors(form.tickets) }}
                  {{ form_widget(form.tickets) }}
-            </div>      
-            {% endfor %}
+            </div>
+            {#{% for ticket in form.tickets %}        #}       
+          
+            <div>
+                 {{ form_label(form.reduction, "Tarif réduit") }}
+                 {{ form_errors(form.reduction) }}
+                 {{ form_widget(form.reduction) }}
+            </div>
+            <div>
+                 {{ form_label(form.country, "Pays") }}
+                 {{ form_errors(form.country) }}
+                 {{ form_widget(form.country) }}
+            </div>
+            <div>
+                 {{ form_label(form.birth, "Date de naissance") }}
+                 {{ form_errors(form.birth) }}
+                 {{ form_widget(form.birth) }}
+            </div>
+            <div>
+                 {{ form_label(form.name, "Pénom") }}
+                 {{ form_errors(form.name) }}
+                 {{ form_widget(form.name) }}
+            </div>
+            <div>
+                 {{ form_label(form.surname, "Nom") }}
+                 {{ form_errors(form.surname) }}
+                 {{ form_widget(form.surname) }}
+            </div>
+            
 
 
             <div>

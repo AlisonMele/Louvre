@@ -47,10 +47,10 @@ class SaleType extends AbstractType
                 ->add('surname', TextType::class)
                 ->add('email', EmailType::class)
                 ->add('tickets', CollectionType::class, array(
-                    'entry_type' => TicketType::class,
-                ));    
-    }
-     /*  
+                    'entry_type' => TicketType::class
+                ));                
+        
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

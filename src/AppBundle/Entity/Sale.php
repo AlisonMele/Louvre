@@ -109,7 +109,13 @@ class Sale
     private $quantity;
     
 
-    /**
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+        $this->datereservation = new \DateTime();
+    }    
+     /**
      * add a ticket
      *
      * @param Ticket $ticket
@@ -122,12 +128,6 @@ class Sale
         return $this;
     }
 
-    public function __construct()
-    {
-        $this->tickets = new ArrayCollection();
-        $this->datereservation = new \DateTime();
-    }    
- 
     /**
     * get tickets
      * 

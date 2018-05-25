@@ -49,16 +49,16 @@
                    <p>Réduit  de 10 € accordé dans certaines conditions (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)<p>
     </div>
     <div class="col-md-6">
-        <h1>ETAPE 2 : Complétez les coordonnées des visiteurs</h1>
+        <h1>ETAPE 2 : Compl�tez les coordonnées des visiteurs</h1>
 
-        <form action='{{ path('showtickets') }}' method='POST'>         
+         <form action='{{ path('showtickets') }}' method='POST'>
            {{ form_errors(form) }}
+ 
             <div>
-                 {{ form_label(form.datereservation, "Date de la réservation") }}
+                 {{ form_label(form.datereservation, "Date de la r�servation") }}
                  {{ form_errors(form.datereservation) }}
                  {{ form_widget(form.datereservation) }}
             </div>
-
             <div>
                  {{ form_label(form.visit, "Date de la visite") }}
                  {{ form_errors(form.visit) }}
@@ -75,7 +75,7 @@
                  {{ form_widget(form.quantity) }}
             </div>
             <div>
-                 {{ form_label(form.name, "Pénom") }}
+                 {{ form_label(form.name, "Pr�nom") }}
                  {{ form_errors(form.name) }}
                  {{ form_widget(form.name) }}
             </div>
@@ -89,39 +89,42 @@
                  {{ form_errors(form.email) }}
                  {{ form_widget(form.email) }}
             </div>
+        <h2>Informations visiteurs</h2>
 
-          {% for ticket in formulaire %}             
+        <div class="visiteurs" style="border">
+        {#  {% for ticket in formulaire %}#}
             <div>
-                <h2>Informations visiteurs</h2>
-                
-            </div>      
-            <div>
-                 {{ form_label(formulaire.name, "Pénom") }}
+                 {{ form_label(formulaire.name, "Pr�nom") }}
                  {{ form_errors(formulaire.name) }}
                  {{ form_widget(formulaire.name) }}
-            </div>
+            </div>      
             <div>
                  {{ form_label(formulaire.surname, "Nom") }}
                  {{ form_errors(formulaire.surname) }}
                  {{ form_widget(formulaire.surname) }}
-            </div>
+            </div> 
             <div>
                  {{ form_label(formulaire.birth, "Date de naissance") }}
                  {{ form_errors(formulaire.birth) }}
                  {{ form_widget(formulaire.birth) }}
-            </div>
+            </div> 
             <div>
-                 {{ form_label(formulaire.country, "Pays de résidence") }}
+                 {{ form_label(formulaire.country, "Pays de r�sidence") }}
                  {{ form_errors(formulaire.country) }}
                  {{ form_widget(formulaire.country) }}
-            </div>
+            </div> 
             <div>
-                 {{ form_label(formulaire.reduction, "Tarif réduit") }}
+                 {{ form_label(formulaire.reduction, "Tarif r�duit") }}
                  {{ form_errors(formulaire.reduction) }}
                  {{ form_widget(formulaire.reduction) }}
-            </div>
-           {% endfor %}
-
+            </div> 
+            <div>
+                 {{ form_label(formulaire.price, "Prix") }}
+                 {{ form_errors(formulaire.price) }}
+                 {{ form_widget(formulaire.price) }}
+            </div> 
+          {#  {% endfor %}#}
+        </div>
 
             <div>
             <button type="submit" name="Valider coordonnées visiteur"  value="enregistrer"  class="btn btn-primary">Valider coordonnées visiteur</button> 

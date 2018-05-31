@@ -35,7 +35,7 @@ class OrderController extends Controller
     {
         \Stripe\Stripe::setApiKey("sk_test_kHXZoL4pR1tumh1deWANdnua");
         // Get the credit card details submitted by the form
-
+        
         $token = $_POST['stripeToken'];
         // Create a charge: this will charge the user's card
         try {
@@ -47,7 +47,8 @@ class OrderController extends Controller
                 "description" => "Paiement Stripe - OpenClassrooms Exemple"
             ));
             $this->addFlash("success","Bravo ça marche !");
-            return $this->redirectToRoute("checkout.html.twig");
+            return $this->render("AppBundle:order:checkout.html.twig");
+            $this->get('mailer')->send($message);
         } catch(\Stripe\Error\Card $e) {
             $this->addFlash("error","Snif ça marche pas :(");
             return $this->redirectToRoute("order_prepare");

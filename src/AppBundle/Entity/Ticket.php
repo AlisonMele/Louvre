@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\Constraints as AcmeAssert;
 
@@ -64,9 +63,9 @@ class Ticket
     private $birth;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="country", type="simple_array")
+     * @ORM\Column(name="country", type="string")
      * @Assert\Country()
      */
     private $country;
@@ -94,7 +93,7 @@ class Ticket
     }
  
     /**
-    *
+    * Get Sale
     */
     public function getSale()
     {
@@ -254,4 +253,3 @@ class Ticket
     
     
 }
-

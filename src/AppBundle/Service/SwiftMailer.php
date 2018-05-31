@@ -22,15 +22,17 @@ class mail
 {
     private $email;
     private $name;
+    private $surname;
     private $ticket;
     
-    public function __construct($email, $name, $ticket) {
-        ;
+    public function __construct(EntityManager $em, $email, $name, $surname, $ticket) {
+        $this->em = $em;
+   
     }
 }
 /*
  * 
- * @Route("/confirmation")
+ * @Route("/confirmation", name="order_confirmation")
  * 
  */
 class SwiftMailer
@@ -43,17 +45,12 @@ class SwiftMailer
             ->setTo('$email')
             ->setBody(
                 $this->renderView(
-                   'AppBundle:index:emails.html.twig',
+                   'AppBundle:order:checkout.html.twig',
                     array('email' => $email)
             ),
             'text/html'
         );
 
          $mailer->send($message);
-
-    // or, you can also fetch the mailer service this way
-    // $this->get('mailer')->send($message);
-
-        return $this->render('AppBundle:index:emails.html.twig');
     }
 }

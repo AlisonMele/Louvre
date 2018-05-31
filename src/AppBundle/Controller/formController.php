@@ -15,6 +15,7 @@ use AppBundle\Entity\Sale;
 use AppBundle\Entity\Ticket;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class formController extends Controller {
               
      /**
@@ -24,20 +25,29 @@ class formController extends Controller {
     {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
-        $ticket = new Ticket();
-        $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);
-
         $form->handleRequest($request);
-//        $booking= $this->getService('BookingManager');
-//        $booking->initBooking($sale);
-//        
-        if($form->isSubmitted() && $form->isValid()){
 
-//            $form->handleRequest($request);
-            $em = $this->getDoctrine()->getManager();
-//            $form->getData();
-//            $this->getSession()->set('email', $email);
-            
+        return $this->render('AppBundle:index:accueil.html.twig', array(
+                'form' => $form->createView(),
+            ));
+    }
+    /**
+    * @Route("/commande", name="commande")
+    */
+    public function addCommand(Request $request)
+    {
+        $sale = new Sale();
+        $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
+        $ticket = new Ticket();
+        $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);      
+        $form->handleRequest($request);
+        $session = $this->getService('BookingManager');
+        
+     
+        if($form->isSubmitted() && $form->isValid()){
+        $session->initBooking($sale);
+        
+
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),
                 'formulaire' => $formulaire->createView(),
@@ -47,9 +57,7 @@ class formController extends Controller {
         return $this->render('AppBundle:index:accueil.html.twig', array(
                 'form' => $form->createView(),
             ));
-
     }
-
     /**
      * 
      * @Route ("/ticket", name="showtickets")
@@ -61,13 +69,14 @@ class formController extends Controller {
         $ticket = new Ticket();
         $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);
         
-        $form->getData();
-        $formulaire->getData();
-//        $this->getSession()->set('email');
+        $formulaire->handleRequest($request);     
+////        $form->getData();
+////        $formulaire->getData();
         $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()){
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sale);
+//                $this->getSession()->set('id');
                 $em->persist($ticket);
                 $em->flush();
             return $this->render('AppBundle:order:paiement.html.twig');

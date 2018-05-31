@@ -5,7 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Validator\Constraint as AcmeAssert;
+use App\Validator\Constraints as AcmeAssert;
+
 
 /**
  * Sale
@@ -68,6 +69,7 @@ class Sale
      *
      * @ORM\Column(name="datereservation", type="date")
      * 
+     * 
      */
     private $datereservation;
     
@@ -84,6 +86,10 @@ class Sale
      * @ORM\Column(name="visit", type="date")
      * @Assert\NotBlank()
      * @Assert\Date()
+     * @Assert\GreaterThan(
+     *     value = "today",
+     *     message = "Vous ne pouvez pas réserver pour des jours passés",
+     * )
      *
      * 
      */
@@ -308,5 +314,14 @@ class Sale
     {
         return $this->quantity;
     }
-}
 
+    /**
+     * Remove ticket
+     *
+     * @param \AppBundle\Entity\Ticket $ticket
+     */
+    public function removeTicket(\AppBundle\Entity\Ticket $ticket)
+    {
+        $this->tickets->removeElement($ticket);
+    }
+}

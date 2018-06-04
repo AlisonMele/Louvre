@@ -41,12 +41,12 @@ class formController extends Controller {
         $ticket = new Ticket();
         $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);      
         $form->handleRequest($request);
-        $session = $this->getService('BookingManager');
-        
-     
+        $session = $this->getService('BookingManager');      
+
         if($form->isSubmitted() && $form->isValid()){
+
         $session->initBooking($sale);
-        
+          
 
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),

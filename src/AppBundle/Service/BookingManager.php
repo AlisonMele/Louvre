@@ -7,17 +7,18 @@ namespace AppBundle\Service;
  * and open the template in the editor.
  */
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Doctrine\ORM\EntityManager;
 
 
 class BookingManager
 {
-    private $session;
-    private $em;
-    
-    public function __construct(EntityManager $em, SessionInterface $session) {
-        $this->em = $em;
-        $this->session = $session;
-    }
+//    private $session;
+//    private $em;
+//    
+//    public function __construct(EntityManager $em, SessionInterface $session) {
+//        $this->em = $em;
+//        $this->session = $session;
+//    }
     public function initBooking(Sale $sale) {
         $session = $this->session;
         $session->set('sale', $sale);

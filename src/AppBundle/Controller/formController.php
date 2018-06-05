@@ -14,6 +14,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Sale;
 use AppBundle\Entity\Ticket;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\BookingManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 class formController extends Controller {
@@ -27,6 +29,7 @@ class formController extends Controller {
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
+
         return $this->render('AppBundle:index:accueil.html.twig', array(
                 'form' => $form->createView(),
             ));
@@ -41,14 +44,14 @@ class formController extends Controller {
         $ticket = new Ticket();
         $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);      
         $form->handleRequest($request);
-        
-//        $booking = $this->get('BookingManager');      
+        $booking = $this->get('AppBundle\Service\BookingManager');
+      
     
 
         if($form->isSubmitted() && $form->isValid()){
 
-//        $session->initBooking($sale);
-          
+        $booking->initBooking();
+//          
 
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),

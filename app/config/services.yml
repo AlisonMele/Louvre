@@ -5,11 +5,11 @@ parameters:
 
 services:
       
-#    BookingManager:
-#        class: AppBundle\Service\BookingManager
-#        arguments: 
-#            $em: '@doctrine.orm.entity_manager'
-#            $session: '@session'
+    BookingManager:
+        class: AppBundle\Service\BookingManager
+        arguments: 
+            $em: '@doctrine.orm.entity_manager'
+            $session: '@session'
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

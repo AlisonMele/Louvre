@@ -91,6 +91,7 @@ class Sale
      *     message = "Vous ne pouvez pas réserver pour des jours passés",
      * )
      *
+     * 
      */
     private $visit;
 

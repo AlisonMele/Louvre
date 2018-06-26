@@ -71,12 +71,14 @@ class Ticket
     private $country;
     /*
      * @var int
+     * 
      * @ORM\Column(name="price", type="integer")
      */
     private $price;
     
     /*
      * @var bool
+     * 
      * @ORM\Column(name="reduction", type="boolean")
      */
     private $reduction;
@@ -107,7 +109,6 @@ class Ticket
     public function setReduction($reduction)
     {
       $this->reduction = $reduction;
-      return $this;
     }
 
     /**

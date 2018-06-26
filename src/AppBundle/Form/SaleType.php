@@ -29,13 +29,14 @@ class SaleType extends AbstractType
         $builder
                 ->add('datereservation', DateType::class, array(
                     'data' => new \Datetime(),
+                    'disabled' => 'disabled',
                    
                 ))
-
                 ->add('visit', DateType::class, array(
-                    'widget' => 'choice',
+                    'widget' => 'single_text',
                     'years'  => range(2018, 2019),
-                    ))
+                    'attr' => ['class' => 'js-datepicker'],                   
+                ))
                 ->add('typeticket', ChoiceType::class, array(
                     'choices' => array(
                         'Journée' => true,
@@ -47,7 +48,9 @@ class SaleType extends AbstractType
                 ->add('surname', TextType::class)
                 ->add('email', EmailType::class)
                 ->add('tickets', CollectionType::class, array(
-                    'entry_type' => TicketType::class
+                    'entry_type' => TicketType::class,
+                    'allow_add'    => true,
+                    'allow_delete' => true
                 ));                
         
     }/**

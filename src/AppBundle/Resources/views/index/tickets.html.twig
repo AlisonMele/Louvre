@@ -58,9 +58,15 @@
         <h1>ETAPE 2 : Complétez les coordonnées des visiteurs</h1>
 
          <form action='{{ path('showtickets') }}' method='POST'>
+            {# {{ form_row(form.visit) }}
+             {{ form_row(form.name) }}
+             {{ form_row(form.surname) }}
+             {{ form_row(form.typeticket) }}
+             {{ form_row(form.quantity) }}
+             {{ form_row(form.email) }}#}
            
-           
-              {#<div class="hidden">#}
+        <div class="form-group">
+              <div class="hidden">
                 <label class="col-form-label required">Date de la réservation</label>
                 <div id="appbundle_sale_datereservation" class="form-inline">            <div class="sr-only">
                 <label class="form-control-label required" for="appbundle_sale_datereservation_year">Year</label>
@@ -68,7 +74,7 @@
                 <label class="form-control-label required" for="appbundle_sale_datereservation_day">Day</label>
             </div><select id="appbundle_sale_datereservation_day" name="appbundle_sale[datereservation][day]" disabled="disabled" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7" selected="selected">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select><select id="appbundle_sale_datereservation_month" name="appbundle_sale[datereservation][month]" disabled="disabled" class="form-control"><option value="1">janv.</option><option value="2">févr.</option><option value="3">mars</option><option value="4">avr.</option><option value="5">mai</option><option value="6" selected="selected">juin</option><option value="7">juil.</option><option value="8">août</option><option value="9">sept.</option><option value="10">oct.</option><option value="11">nov.</option><option value="12">déc.</option></select><select id="appbundle_sale_datereservation_year" name="appbundle_sale[datereservation][year]" disabled="disabled" class="form-control"><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018" selected="selected">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option></select></div>
 
-            {#</div>#}
+            </div>
             <div>
                 <label for="appbundle_sale_visit" class="form-control-label required">Date de la visite</label>
                 <input type="date" id="appbundle_sale_visit" name="appbundle_sale[visit]" required="required" class="form-control" value="">
@@ -99,41 +105,138 @@
                 <input type="email" id="appbundle_sale_email" name="appbundle_sale[email]" required="required" class="form-control">
 
             </div>
+        </div>
+            <div class="well">
+           {# <div class="form-group">
+              <label class="col-sm-2 control-label required">Coordonnées visiteurs</label>
+              <div class="col-sm-10">
+                <div id="sale_tickets___name__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets_name__name">Nom</label>
+                    <div class="col-sm-10">
+                      <input type="text" id="appbundle_sale_tickets__name__name" name="appbundle_sale[tickets][__name__][name]" required="required" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div id="sale_tickets___surname__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets__surname__surname">Prénom</label>
+                    <div class="col-sm-10">
+                      <input type="text" id="appbundle_sale_tickets__surname__surname" name="appbundle_sale[tickets][__surname__][surname]" required="required" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div id="sale_tickets___birth__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets___birth___birth">Date de naissance</label>
+                    <div class="col-sm-10">
+                      <input type="date" id="appbundle_sale_tickets___birth___birth" name="appbundle_sale[tickets][__birth__][birth]" required="required" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div id="sale_tickets___country__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets___country___country">Pays</label>
+                    <div class="col-sm-10">
+                      <input type="text" id="appbundle_sale_tickets___country___country" name="appbundle_sale[tickets][__country__][country]" required="required" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div id="sale_tickets___reduction__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets___reduction___reduction">Tarif réduit</label>
+                    <div class="col-sm-10">
+                      <input type="checkbox" id="appbundle_sale_tickets___reduction___reduction" name="appbundle_sale[tickets][__reduction__][reduction]" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div id="sale_tickets___price__">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label required" for="appbundle_sale_tickets___price___price">Prix</label>
+                    <div class="col-sm-10">
+                      <input type="text" id="appbundle_sale_tickets___price___price" name="appbundle_sale[tickets][__price__][price]" required="required" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>#}
 
-        <div id="ticket">
-        <h2>Informations visiteurs</h2>
-        
-            <div>
-                <label for="appbundle_ticket_name" class="required">Prénom</label>
-                <input type="text" id="appbundle_ticket_name" name="appbundle_ticket[name]" required="required">
+              
+                 {{ form_row(form.tickets) }}
+                  <a href="#" id="add_category" class="btn btn-default">Ajouter un ticket</a>
+                </div>
 
-            </div>      
-            <div>
-                <label for="appbundle_ticket_surname" class="required">Nom</label>
-                <input type="text" id="appbundle_ticket_surname" name="appbundle_ticket[surname]" required="required">
+                {# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
+                   mais si vous l'avez en local, changez simplement l'adresse. #}
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-            </div> 
-            <div id='birthday'>
-                <label for="appbundle_ticket_birth" class="required">Date de naissance</label>
-                <input type="date" id="appbundle_ticket_birth" name="appbundle_ticket[birth]" required="required" class="birthday">
+                {# Voici le script en question : #}
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                    // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+                    var $container = $('div#appbundle_sale_tickets');
 
-            </div> 
-            <div>
-                <label for="appbundle_ticket_country" class="required">Pays de résidence</label>
-                <select id="appbundle_ticket_country" name="appbundle_ticket[country]"><option value="AF">Afghanistan</option><option value="ZA">Afrique du Sud</option><option value="AL">Albanie</option><option value="DZ">Algérie</option><option value="DE">Allemagne</option><option value="AD">Andorre</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctique</option><option value="AG">Antigua-et-Barbuda</option><option value="SA">Arabie saoudite</option><option value="AR">Argentine</option><option value="AM">Arménie</option><option value="AW">Aruba</option><option value="AU">Australie</option><option value="AT">Autriche</option><option value="AZ">Azerbaïdjan</option><option value="BS">Bahamas</option><option value="BH">Bahreïn</option><option value="BD">Bangladesh</option><option value="BB">Barbade</option><option value="BE">Belgique</option><option value="BZ">Belize</option><option value="BJ">Bénin</option><option value="BM">Bermudes</option><option value="BT">Bhoutan</option><option value="BY">Biélorussie</option><option value="BO">Bolivie</option><option value="BA">Bosnie-Herzégovine</option><option value="BW">Botswana</option><option value="BR">Brésil</option><option value="BN">Brunéi Darussalam</option><option value="BG">Bulgarie</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodge</option><option value="CM">Cameroun</option><option value="CA">Canada</option><option value="CV">Cap-Vert</option><option value="EA">Ceuta et Melilla</option><option value="CL">Chili</option><option value="CN">Chine</option><option value="CY">Chypre</option><option value="CO">Colombie</option><option value="KM">Comores</option><option value="CG">Congo-Brazzaville</option><option value="CD">Congo-Kinshasa</option><option value="KP">Corée du Nord</option><option value="KR">Corée du Sud</option><option value="CR">Costa Rica</option><option value="CI">Côte d’Ivoire</option><option value="HR">Croatie</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="DK">Danemark</option><option value="DG">Diego Garcia</option><option value="DJ">Djibouti</option><option value="DM">Dominique</option><option value="EG">Égypte</option><option value="AE">Émirats arabes unis</option><option value="EC">Équateur</option><option value="ER">Érythrée</option><option value="ES">Espagne</option><option value="EE">Estonie</option><option value="VA">État de la Cité du Vatican</option><option value="FM">États fédérés de Micronésie</option><option value="US">États-Unis</option><option value="ET">Éthiopie</option><option value="FJ">Fidji</option><option value="FI">Finlande</option><option value="FR">France</option><option value="GA">Gabon</option><option value="GM">Gambie</option><option value="GE">Géorgie</option><option value="GS">Géorgie du Sud et îles Sandwich du Sud</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Grèce</option><option value="GD">Grenade</option><option value="GL">Groenland</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernesey</option><option value="GN">Guinée</option><option value="GQ">Guinée équatoriale</option><option value="GW">Guinée-Bissau</option><option value="GY">Guyana</option><option value="GF">Guyane française</option><option value="HT">Haïti</option><option value="HN">Honduras</option><option value="HU">Hongrie</option><option value="CX">Île Christmas</option><option value="AC">Île de l’Ascension</option><option value="IM">Île de Man</option><option value="NF">Île Norfolk</option><option value="AX">Îles Åland</option><option value="KY">Îles Caïmans</option><option value="IC">Îles Canaries</option><option value="CC">Îles Cocos</option><option value="CK">Îles Cook</option><option value="FO">Îles Féroé</option><option value="FK">Îles Malouines</option><option value="MP">Îles Mariannes du Nord</option><option value="MH">Îles Marshall</option><option value="UM">Îles mineures éloignées des États-Unis</option><option value="PN">Îles Pitcairn</option><option value="SB">Îles Salomon</option><option value="TC">Îles Turques-et-Caïques</option><option value="VG">Îles Vierges britanniques</option><option value="VI">Îles Vierges des États-Unis</option><option value="IN">Inde</option><option value="ID">Indonésie</option><option value="IQ">Irak</option><option value="IR">Iran</option><option value="IE">Irlande</option><option value="IS">Islande</option><option value="IL">Israël</option><option value="IT">Italie</option><option value="JM">Jamaïque</option><option value="JP">Japon</option><option value="JE">Jersey</option><option value="JO">Jordanie</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KG">Kirghizistan</option><option value="KI">Kiribati</option><option value="XK">Kosovo</option><option value="KW">Koweït</option><option value="RE">La Réunion</option><option value="LA">Laos</option><option value="LS">Lesotho</option><option value="LV">Lettonie</option><option value="LB">Liban</option><option value="LR">Libéria</option><option value="LY">Libye</option><option value="LI">Liechtenstein</option><option value="LT">Lituanie</option><option value="LU">Luxembourg</option><option value="MK">Macédoine</option><option value="MG">Madagascar</option><option value="MY">Malaisie</option><option value="MW">Malawi</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malte</option><option value="MA">Maroc</option><option value="MQ">Martinique</option><option value="MU">Maurice</option><option value="MR">Mauritanie</option><option value="YT">Mayotte</option><option value="MX">Mexique</option><option value="MD">Moldavie</option><option value="MC">Monaco</option><option value="MN">Mongolie</option><option value="ME">Monténégro</option><option value="MS">Montserrat</option><option value="MZ">Mozambique</option><option value="MM">Myanmar (Birmanie)</option><option value="NA">Namibie</option><option value="UN">Nations Unies</option><option value="NR">Nauru</option><option value="NP">Népal</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigéria</option><option value="NU">Niue</option><option value="NO">Norvège</option><option value="NC">Nouvelle-Calédonie</option><option value="NZ">Nouvelle-Zélande</option><option value="OM">Oman</option><option value="UG">Ouganda</option><option value="UZ">Ouzbékistan</option><option value="PK">Pakistan</option><option value="PW">Palaos</option><option value="PA">Panama</option><option value="PG">Papouasie-Nouvelle-Guinée</option><option value="PY">Paraguay</option><option value="NL">Pays-Bas</option><option value="BQ">Pays-Bas caribéens</option><option value="PE">Pérou</option><option value="PH">Philippines</option><option value="PL">Pologne</option><option value="PF">Polynésie française</option><option value="PR">Porto Rico</option><option value="PT">Portugal</option><option value="QA">Qatar</option><option value="HK">R.A.S. chinoise de Hong Kong</option><option value="MO">R.A.S. chinoise de Macao</option><option value="CF">République centrafricaine</option><option value="DO">République dominicaine</option><option value="RO">Roumanie</option><option value="GB">Royaume-Uni</option><option value="RU">Russie</option><option value="RW">Rwanda</option><option value="EH">Sahara occidental</option><option value="BL">Saint-Barthélemy</option><option value="KN">Saint-Christophe-et-Niévès</option><option value="SM">Saint-Marin</option><option value="MF">Saint-Martin</option><option value="SX">Saint-Martin (partie néerlandaise)</option><option value="PM">Saint-Pierre-et-Miquelon</option><option value="VC">Saint-Vincent-et-les-Grenadines</option><option value="SH">Sainte-Hélène</option><option value="LC">Sainte-Lucie</option><option value="SV">Salvador</option><option value="WS">Samoa</option><option value="AS">Samoa américaines</option><option value="ST">Sao Tomé-et-Principe</option><option value="SN">Sénégal</option><option value="RS">Serbie</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapour</option><option value="SK">Slovaquie</option><option value="SI">Slovénie</option><option value="SO">Somalie</option><option value="SD">Soudan</option><option value="SS">Soudan du Sud</option><option value="LK">Sri Lanka</option><option value="SE">Suède</option><option value="CH">Suisse</option><option value="SR">Suriname</option><option value="SJ">Svalbard et Jan Mayen</option><option value="SZ">Swaziland</option><option value="SY">Syrie</option><option value="TJ">Tadjikistan</option><option value="TW">Taïwan</option><option value="TZ">Tanzanie</option><option value="TD">Tchad</option><option value="CZ">Tchéquie</option><option value="TF">Terres australes françaises</option><option value="IO">Territoire britannique de l’océan Indien</option><option value="PS">Territoires palestiniens</option><option value="TH">Thaïlande</option><option value="TL">Timor oriental</option><option value="TG">Togo</option><option value="TK">Tokélaou</option><option value="TO">Tonga</option><option value="TT">Trinité-et-Tobago</option><option value="TA">Tristan da Cunha</option><option value="TN">Tunisie</option><option value="TM">Turkménistan</option><option value="TR">Turquie</option><option value="TV">Tuvalu</option><option value="UA">Ukraine</option><option value="UY">Uruguay</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="WF">Wallis-et-Futuna</option><option value="YE">Yémen</option><option value="ZM">Zambie</option><option value="ZW">Zimbabwe</option><option value="EZ">zone euro</option></select>
+                    // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+                    var index = $container.find(':input').length;
 
-            </div> 
-            <div>
-                <label for="appbundle_ticket_reduction">Tarif réduit (Un justificatif vous sera demandé à l'entrée du musée)</label>
-                <input type="checkbox" id="appbundle_ticket_reduction" name="appbundle_ticket[reduction]" class="reduc" value="1">
+                    // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+                    $('#add_category').click(function(e) {
+                      addCategory($container);
 
-            </div>
+                      e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                      return false;
+                    });
 
+                    // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+                    if (index === 0) {
+                      addCategory($container);
+                    } else {
+                      // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
+                      $container.children('div').each(function() {
+                        addDeleteLink($(this));
+                      });
+                    }
 
-            <div id='price'>
-                <a id="calcul">Calculer le prix</a> 
-                {#<label for="appbundle_ticket_price">Prix</label>#}
-                <input type="text" id="appbundle_ticket_price" name="appbundle_ticket[price]" class="price">
+                    // La fonction qui ajoute un formulaire CategoryType
+                    function addCategory($container) {
+                      // Dans le contenu de l'attribut « data-prototype », on remplace :
+                      // - le texte "__name__label__" qu'il contient par le label du champ
+                      // - le texte "__name__" qu'il contient par le numéro du champ
+                      var template = $container.attr('data-prototype')
+                        .replace(/__name__label__/g, 'Ticket n°' + (index+1))
+                        .replace(/__name__/g,        index)
+                      ;
+
+                      // On crée un objet jquery qui contient ce template
+                      var $prototype = $(template);
+
+                      // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+                      addDeleteLink($prototype);
+
+                      // On ajoute le prototype modifié à la fin de la balise <div>
+                      $container.append($prototype);
+
+                      // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+                      index++;
+                    }
+
+                    // La fonction qui ajoute un lien de suppression d'une catégorie
+                    function addDeleteLink($prototype) {
+                      // Création du lien
+                      var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+                      // Ajout du lien
+                      $prototype.append($deleteLink);
+
+                      // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+                      $deleteLink.click(function(e) {
+                        $prototype.remove();
+
+                        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                        return false;
+                      });
+                    }
+                  });
+                </script>
             </div>
 
             <script type="text/javascript">
@@ -147,7 +250,7 @@
                       $('#calcul').click(function() {
                          var d = new Date();
                          var now = d.getFullYear()+'-'+d.getMonth()+'-'+d.getDay();
-                         var birth = $('#appbundle_ticket_birth').val();
+                         var birth = $('#sale_tickets___birth___birth').val();
                          resultats = new Date(now - birth);
                          alert(now);
                          alert(birth);
@@ -171,16 +274,6 @@
                  </script>
                  
         </div> <br />
-            <a id="clone">Ajouter un billet</a>
-            <a id="remove">Supprimer un billet</a> <br />
-                <script type="text/javascript">
-                  $("#clone").click(function() {
-                      $('#ticket').clone().appendTo('#ticket'); //Tester addClass
-                  });
-                  $('#remove').click(function() {
-                      $('#ticket:last').remove();
-                  });
-                </script> 
             <div>
             <button type="submit" name="Valider coordonnées visiteur"  value="enregistrer"  class="btn btn-primary">Valider coordonnées visiteur</button> 
             </div>

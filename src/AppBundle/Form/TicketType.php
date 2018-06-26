@@ -30,14 +30,14 @@ class TicketType extends AbstractType
                 ->add('name', TextType::class)
                 ->add('surname', TextType::class)
                 ->add('birth', DateType::class, array(
-                    'widget' => 'choice',
+                    'widget' => 'single_text',
                     'years'  => range(1930,2016),
                     ))
                 ->add('country')
                 ->add('price')
-                ->add('reduction', CheckboxType::class, array(
-                    'required' => FALSE,
-                ));
+                ->add('reduction',CheckboxType::class, array(
+                    'required' => false,
+                    ));
     }
     /**
      * {@inheritdoc}

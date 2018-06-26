@@ -28,8 +28,8 @@ class formController extends Controller {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
         $form->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-
+        $booking = $this->get('AppBundle\Service\BookingManager');  
+        $booking->initBooking();
         return $this->render('AppBundle:index:accueil.html.twig', array(
                 'form' => $form->createView(),
             ));
@@ -41,21 +41,19 @@ class formController extends Controller {
     {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
-        $ticket = new Ticket();
-        $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);      
-        $form->handleRequest($request);
         $booking = $this->get('AppBundle\Service\BookingManager');
-      
+        $booking->initBooking($sale);
     
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+        
+        
 
-        $booking->initBooking();
-//          
 
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),
-                'formulaire' => $formulaire->createView(),
+//                'formulaire' => $formulaire->createView(),
             ));
 
         }
@@ -71,10 +69,10 @@ class formController extends Controller {
     {
         $sale = new Sale();
         $form = $this->createForm(\AppBundle\Form\SaleType::class, $sale);
-        $ticket = new Ticket();
-        $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);
+//        $ticket = new Ticket();
+//        $formulaire = $this->createForm(\AppBundle\Form\TicketType::class, $ticket);
         
-        $formulaire->handleRequest($request);     
+//        $formulaire->handleRequest($request);     
 ////        $form->getData();
 ////        $formulaire->getData();
         $form->handleRequest($request);
@@ -82,13 +80,13 @@ class formController extends Controller {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sale);
 //                $this->getSession()->set('id');
-                $em->persist($ticket);
+//                $em->persist($ticket);
                 $em->flush();
             return $this->render('AppBundle:order:paiement.html.twig');
             }
         return $this->render('AppBundle:index:tickets.html.twig', array(
                 'form' => $form->createView(),
-                'formulaire' => $formulaire->createView(),
+//                'formulaire' => $formulaire->createView(),
             ));
 
     }
